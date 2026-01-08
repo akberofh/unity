@@ -1,0 +1,92 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* index.css or any global stylesheet */
+/* Border animasyonları için CSS */
+@keyframes borderFromRight {
+  0% {
+    border-left: 0;
+    border-right: 100%;
+  }
+  100% {
+    border-left: 100%;
+    border-right: 0;
+  }
+}
+
+@keyframes borderFromLeft {
+  0% {
+    border-left: 100%;
+    border-right: 0;
+  }
+  100% {
+    border-left: 0;
+    border-right: 100%;
+  }
+}
+
+/* Animasyonları uygulamak için */
+[data-aos="custom-border"] {
+  position: relative;
+  padding: 10px;
+  overflow: hidden;
+}
+
+[data-aos="custom-border"]::before, [data-aos="custom-border"]::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: #0077b6; /* Border rengini ayarlayabilirsiniz */
+  transition: all 0.5s ease;
+}
+
+[data-aos="custom-border"]::before {
+  top: 0;
+  left: -100%;
+  animation: borderFromRight 1s forwards; /* Sağdan gelen animasyon */
+}
+
+[data-aos="custom-border"]::after {
+  bottom: 0;
+  right: -100%;
+  animation: borderFromLeft 1s forwards; /* Soldan gelen animasyon */
+}
+
+[data-aos="custom-border"]:hover::before {
+  left: 0;
+}
+
+[data-aos="custom-border"]:hover::after {
+  right: 0;
+}
+
+
+:root {
+  --primary: #3498db;
+  --primary-rgb: 52, 152, 219;
+  --dark-bg: #1a1a1a;
+  --light-bg: #ffffff;
+  --light-text: #000000;
+  --dark-bg: black;
+  --dark-text: #ffffff;
+  --primary: #ff6347;
+  --primary-rgb: 255, 99, 71;
+  --dark-button-text: #000000; 
+}
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+    
+}
+
